@@ -37,8 +37,9 @@ have a return value.
         a = function i_like_to_add_strings(left_string, right_string) {
             return right_string + left_string;
         }
-        
-3) Parting from the previous function definitions, indicate the value of the variable 'result' in each case.
+
+3) A partir de la definicion de funciones del ejercicio anterior, indicar el valor de la variable result en cada caso.
+3) Parting from the previous function definitions, 
         a)
             let result = this_is_my_first_function();
         

@@ -1,6 +1,7 @@
 /*
-1) Read the following variable declarations and mark if they are correct and what type of variable they are. If the definition
-is not correct, clarify why it isn't.
+1) Leer las siguientes declaraciones de variables y marcar si son correctas y de que tipo de variable son. Si la definición
+no es correcta, aclarar porque no lo es.
+1
 
     a) let my_variable = 1542.2;
     b) var you_shoudnt_use_me = "What do you think?";
@@ -11,8 +12,8 @@ is not correct, clarify why it isn't.
     g) let i_dont_want_a_value = null
     h) let i'm_a_variable = "just a variable";
 
-2) Read the following function definitions, mark if they are correct, and clarify if they have input parameters  and if they
-have a return value.
+2) Leer las siguientes definiciones de funciones, marcar si son correctas, aclarar si tienen parametros de entrada y si tienen
+valor de retorno.
 
     a)
         function this_is_my_first_function() {
@@ -37,8 +38,9 @@ have a return value.
         a = function i_like_to_add_strings(left_string, right_string) {
             return right_string + left_string;
         }
-        
-3) Parting from the previous function definitions, indicate the value of the variable 'result' in each case.
+
+3) A partir de la definicion de funciones del ejercicio anterior, indicar el valor de la variable result en cada caso.
+
         a)
             let result = this_is_my_first_function();
         
