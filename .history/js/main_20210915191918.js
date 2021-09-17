@@ -1,1 +1,0 @@
-let lucia = 21;

@@ -1,1 +1,0 @@
-// Variables o "estructuras de datos" => su misión 
