@@ -3,7 +3,7 @@
 is not correct, clarify why it isn't.
 
     a) let my_variable = 1542.2;
-    b) var you_shoudnt_use_me = "What do you think?";
+    b) var you_shoudnt_use_me "What do you think?";
     c) awesome_variable = true;
     d) let im_just_a_number = 12
     e) let $_i_like_money = undefined;
