@@ -32,7 +32,7 @@ let lucas; // Undefined type => JAMAS DEBE SER USADO POR EL PROGRAMADOR
 // Las funciones son secciones de codigo o de programa que se encargar de hacer o modificar algo.
 // Hay funciones definidas por el lenguaje y funciones que puede definir el programador
 
-// function suma(a, b): int {
+function suma(a, b) {
     /* Docstring
     a: int
     b: int
@@ -40,10 +40,10 @@ let lucas; // Undefined type => JAMAS DEBE SER USADO POR EL PROGRAMADOR
     return: int
     */
 
-//     return a + b;
-// }
+     return a + b;
+ }
 
-// let resultado = suma;
+let resultado = suma;
 
 function imprimir_un_numero_mas_uno(numero, canal_de_salida) {
     // numero: int
@@ -61,7 +61,7 @@ function imprimir_un_numero_mas_uno(numero, canal_de_salida) {
 
 // console.log(typeof resultado);
 
-let valor_de_devuelto = imprimir_un_numero_mas_uno(13, alert);
+let valor_de_devuelto = imprimir_un_numero_mas_uno(13, console.log);
 // let valor_de_devuelto = imprimir_un_numero_mas_uno(13, console.log);
 // let resultado = 1 + 2;
 
