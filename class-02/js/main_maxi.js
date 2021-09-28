@@ -71,3 +71,10 @@ have a return value.
         
         g) let result = im_just_a_product(im_just_a_sum(1, 2), im_just_a_sum(3, 4));    // error
 */
+
+a = function i_like_to_add_strings(left_string, right_string) {
+    return right_string + left_string;
+} 
+
+
+console.log(a("to code", "I like"));
