@@ -37,12 +37,13 @@
     }
 
     function in_middle_two_hours(star, end) {
-        val_between_two_hours(star);
-        let second_star_hours = val_between_two_hours();
-        console.log(second_star_hours);
-        val_between_two_hours(end);
-        let second_end_hours = val_between_two_hours();
-        console.log(second_end_hours);
+        if (star < 0 || end < 0) {
+            throw "Error la hora no puede ser negativa";
+        }
+        let second_star_hours = val_between_two_hours(star);
+        //console.log(second_star_hours);
+        let second_end_hours = val_between_two_hours(end);
+        //console.log(second_end_hours);
             if  (second_star_hours < second_end_hours) {
                 diferent_in_seconds = second_end_hours - second_star_hours;
         }   else {
@@ -50,7 +51,8 @@
         }
         //console.log(second_star_hours);
         //console.log(second_end_hours);
-        console.log(diferent_in_seconds);
+        //console.log(diferent_in_seconds);
+        return diferent_in_seconds;
     }
     
     in_middle_two_hours(star_hours, end_hours)
@@ -58,13 +60,23 @@
     function assert_equal(actual, expected) {
         if (actual !== expected) {
             throw (actual + " is not " + expected + ".");
+        }   
+    }
+    function assert_throw(method, ...params) {
+        try {
+            method(...params);
+        } catch (error) {
+            return;
+        }
+        throw "Error not raised";
+    }
 
     function test_hours() {
         assert_equal(in_middle_two_hours(1000, 2359), 50340);
-        assert_equal(in_middle_two_hours(-1000, 1000), 36000);
+        assert_throw(in_middle_two_hours, -1000, 1000);
         assert_equal(in_middle_two_hours(700, 500), 7200);
-        assert_equal(in_middle_two_hours(100.5, -20), 2400);
+        assert_throw(in_middle_two_hours, 100.5, -20);
+        console.log("Test passed")
+    }
 
     test_hours()
-
-    
