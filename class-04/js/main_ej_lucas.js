@@ -15,3 +15,5 @@ for (let result = x_length - n_letter; result < x_length; result++) {
     final += word[result];
 }
 console.log(final);
+
+// funcion, tiene que volver puto, tests
