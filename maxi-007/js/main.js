@@ -3,22 +3,45 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// function reverse_string(string_to_reverse) {
+function reverse_string(string_to_reverse) {
 
-//     let new_string = "";
+    let new_string = "";
 
-//     for (let index = string_to_reverse.length -1; index >= 0; index--) {
+    for (let index = string_to_reverse.length -1; index >= 0; index--) {
 
-//         new_string += string_to_reverse[index];
+        new_string += string_to_reverse[index];
 
-//     }
+    }
 
-//     return new_string;
+    return new_string;
 
-// };
+}
+
+function assert_equal(actual, expected) {
+        if (actual !== expected) {
+            throw (actual + " is not " + expected + ".");
+        } else {
+        }
+    }
+
+function test_reverse_string(){
+
+    assert_equal(reverse_string("neuquen"), "neuquen");
+    assert_equal(reverse_string("neuquen2"), "2neuquen");
+    assert_equal(reverse_string("hola"), "aloh");
+    assert_equal(reverse_string("nedeah"), "haeden");
+    assert_equal(reverse_string("hol@"), "@loh");
+    assert_equal(reverse_string(""), "");
 
 
-// // console.log(reverse_string("neuquen"));
+    console.log("================");
+    console.log("All tests passed");
+    console.log("================");
+}
+
+test_reverse_string()
+
+// console.log(reverse_string("neuquen"));
 
 // const string = prompt("Enter a string: ");
 
@@ -45,13 +68,37 @@
         
 //         if (string_to_remove[index] != "a" && string_to_remove[index] != "e" && string_to_remove[index] != "i" && string_to_remove[index] != "o" && string_to_remove[index] != "u"){
 //             new_string += string_to_remove[index];
-//         };       
-//     };
+//         }       
+//     }
 
 //     return new_string; 
-// };
+// }
 
-// console.log(remove_vowells_string("neuquen"));
+// function assert_equal(actual, expected) {
+//     if (actual !== expected) {
+//         throw (actual + " is not " + expected + ".");
+//     } else {
+//     }
+// }
+
+// function test_remove_vowells_string(){
+
+//     assert_equal(remove_vowells_string("neuquen"), "nqn");
+//     assert_equal(remove_vowells_string("nqn"), "nqn");
+//     assert_equal(remove_vowells_string("neuquen2"), "nqn2");
+//     assert_equal(remove_vowells_string("neuqu@en"), "nq@n");
+//     assert_equal(remove_vowells_string("neuquen"), "nqn");
+//     assert_equal(remove_vowells_string("aeiou"), "");
+//     assert_equal(remove_vowells_string("zzzzz"), "zzzzz");
+
+
+//     console.log("================");
+//     console.log("All tests passed");
+//     console.log("================");
+
+// }
+
+// test_remove_vowells_string()
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,18 +106,46 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function string_shorten(string_to_shorten,n){
+// function string_shorten(string_to_shorten,to_length){
 
-    let new_string = "";
+//     let new_string = "";
 
-    for (let index = string_to_shorten.length - 1; index = n; index--) {
+//     if (string_to_shorten.length <= to_length ) {
+//         return string_to_shorten;
+//     }
 
-        new_string -= n;
+//     for (let index = 0; index < to_length; index++) {
+        
+//         new_string += string_to_shorten[index]
+        
+//     }
 
-        };
+//     return new_string;
 
-    return new_string;
+// }
 
-};
+// function assert_equal(actual, expected) {
+//     if (actual !== expected) {
+//         throw (actual + " is not " + expected + ".");
+//     } else {
+//     }
+// }
 
-console.log(string_to_shorten("neuquen2", 2));
+// function test_string_shorten(){
+
+//     assert_equal(string_shorten("hola", 2), "ho");
+//     assert_equal(string_shorten("hola", 3), "hol");
+//     assert_equal(string_shorten("nedeah", 2), "ne");
+//     assert_equal(string_shorten("for", 1), "f");
+//     assert_equal(string_shorten("hola", 0), "");
+//     assert_equal(string_shorten("hola", 4), "hola");
+//     assert_equal(string_shorten("gei", 14), "gei");
+//     assert_equal(string_shorten("", 2), "");
+
+//     console.log("================");
+//     console.log("All tests passed");
+//     console.log("================");
+   
+// }
+
+// test_string_shorten()
