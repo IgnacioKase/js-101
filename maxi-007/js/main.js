@@ -67,11 +67,6 @@ const result = reverse_string(string);
 
 console.log(result);
 
-for (let index = 3 ; index >= 0; index--) {  
-    console.log (index);   
-}
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 2 - Create a function that takes a string and removes all vocals from it. For example, "aaggee" -> "gg". Create tests for the function.//
@@ -223,28 +218,28 @@ test_string_shorten()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// function main(){
+function main(){
 
-//     let depth = parseInt(readLine(), 10);
-//     let climb = 7;
-//     let slip = 2;
-//     let day = 0;
+    let depth = parseInt(readLine(), 10);
+    let climb = 7;
+    let slip = 2;
+    let day = 0;
 
-//     for (let index = 0; index <= depth;) {
+    for (let index = 0; index <= depth;) {
 
-//         day += 1;
-//         index += climb;
+        day += 1;
+        index += climb;
 
-//         if (index >= depth) {
-//             break;
-//         }
+        if (index >= depth) {
+            break;
+        }
 
-//         index -= slip;
+        index -= slip;
 
-//     }
+    }
 
-//     console.log(day);
+    console.log(day);
 
-// }
+}
 
 
