@@ -6,14 +6,28 @@
 
 3 - Create a function that given a string and an intenger N, it shortens the string to N characters. For example string="abcde", N=2 -> "ab". Create tests for the function.*/
 
-let word = "putoelquelea"
+//let word = "putoelquelea"
+let word = "puto"
 let n_letter = 4
 let x_length = word.length;
 let final = ""
+let reves = ""
 
-for (let result = x_length - n_letter; result < x_length; result++) {
+function reverce (x_length){
+for (inverse = x_length -1 ; inverse < x_length; inverse++) {
+    reves += word[inverse];
+}
+console.log(reves);
+}
+
+function loquequeda (n_letter, x_length) {
+for (result = x_length - n_letter; result < x_length; result++) {
     final += word[result];
 }
 console.log(final);
+}
 
-// funcion, tiene que volver puto, tests
+reverce(x_length)
+loquequeda(n_letter, x_length)
+
+// , tiene que volver puto, tests
