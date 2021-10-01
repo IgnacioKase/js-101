@@ -35,4 +35,4 @@ let maze = [
 ];
 ```
 
-The maze can have any shape and size. But you can start thinking about it as an square maze (meaning: the same number of rows than columns).
+The maze can have any shape and size. But you can start thinking about it as a square maze (meaning: the same number of rows as columns)
