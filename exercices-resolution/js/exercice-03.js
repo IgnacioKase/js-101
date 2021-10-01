@@ -9,7 +9,7 @@ function short_string(string_to_shorten, to_length) {
 }
 function test_short_string() {
     console.log("Executing test for exercice-03...");
-    test_suite_js_1.assert_equal(short_string("abcde", 2), "ab");
+    test_suite_js_1.assert_equal(short_string("abcde", 2), "aba");
     test_suite_js_1.assert_equal(short_string("", 2), "");
     test_suite_js_1.assert_throw(short_string, [], 2);
     console.log("===================");
