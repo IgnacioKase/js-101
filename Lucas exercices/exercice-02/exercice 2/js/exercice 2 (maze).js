@@ -13,7 +13,7 @@ let accountant = 0;
 
 function escape_from_maze(final){
 
-    if (path[index] = 3){
+    if (final[index] = 3){
 
         break;
         return true;
