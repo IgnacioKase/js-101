@@ -36,3 +36,13 @@ let maze = [
 ```
 
 The maze can have any shape and size. But you can start thinking about it as a square maze (meaning: the same number of rows as columns)
+
+
+```
+let maze = [
+    [1, 4, 1, 1, 4, 1, 4, 1],
+    [1, 4, 4, 4, 4, 4, 4, 4],
+    [1, 1, 4, 1, 1, 1, 1, 2],
+    [1, 1, 4, 4, 4, 4, 1, 3]
+];
+```

@@ -42,7 +42,10 @@ function get_last_n_digits(x, wanted_digits) {
     if ( wanted_digits > x_length) {
         throw "The number passed is shorter than the request digits.";
     }
-
+    
+    // in case the user is asking for all the digist in the number
+    // we need to take into account that a negative number will have
+    // a "-" in the first position
     if ((wanted_digits + 1) == x_length && x < 0) {
         return x;
     }

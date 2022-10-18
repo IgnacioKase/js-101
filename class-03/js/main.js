@@ -23,6 +23,9 @@ message = a == b ? "the values are the same" : "the values are the distinct";
 
 message = a === b ? start_engine() : stop_engine();
 
+// "1" == 1 // true => "1" == "1"  => true
+// "1" === 1 // false 
+
 console.log(message);
 
 ///////////////////////////////////////////////////
@@ -41,12 +44,12 @@ function sum(a, b) {
 
 function assert_true(value) {
     if (!value) {
-        throw ("Expected {true} but {false} was found.");
+        throw "Expected {true} but {false} was found.";
     }
 }
 
 function assert_equal(actual, expected) {
-    if (actual !== expected) {
+    if (actual !==  expected) {
         throw (actual + " is not " + expected + ".");
     }
 }

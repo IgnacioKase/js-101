@@ -36,10 +36,11 @@
 
 function get_seconds_between(start_time, end_time) {
     /*
-        @start_hour: int. Between 0 and 2359
-        @end_hour: int. Between 0 and 2359
+        @start_time: int. Between 0 and 2359
+        @end_time: int. Between 0 and 2359
 
         where the two last digits represents the minutes (from 0 to 60).
+        Assume both dates are in the same day.
         
         @return value: int. The number of seconds between the given hours.
     */
@@ -55,7 +56,7 @@ function get_seconds_between(start_time, end_time) {
     let end_time_hours = get_hours_from_time(end_time);
     let end_time_minutes = get_minutes_from_time(end_time);
 
-    // Second phase
+    // Second phase 
     let hours_difference = Math.abs(end_time_hours - start_time_hours)
     let minutes_difference = Math.abs(end_time_minutes - start_time_minutes)
 
@@ -70,10 +71,24 @@ function get_seconds_between(start_time, end_time) {
 }
 
 function get_hours_from_time(time) {
+    /* Get the hours from a time.
+    @time: int. Between 0 and 2359
+
+    @return value: int Return the two first digits of the given time, corresponding to the hours of the datetime.
+
+    Example: get_hours_from_time(2030) => 20
+    */
     return Math.trunc(time / 100);
 }
 
 function get_minutes_from_time(time) {
+    /* Get the minutes from a time.
+    @time: int. Between 0 and 2359
+
+    @return value: int Return the two last digits of the given time, corresponding to the minutes of the datetime.
+
+    Example: get_minutes_from_time(2030) => 30
+    */
     let hours = get_hours_from_time(time);
     return time - (hours * 100);
 }

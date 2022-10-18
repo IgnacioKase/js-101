@@ -32,6 +32,17 @@ let lucas; // Undefined type => JAMAS DEBE SER USADO POR EL PROGRAMADOR
 // Las funciones son secciones de codigo o de programa que se encargar de hacer o modificar algo.
 // Hay funciones definidas por el lenguaje y funciones que puede definir el programador
 
+function imprimir_un_numero_mas_uno(numero, canal_de_salida) {
+    // numero: int
+    // canal_de_salida: function
+    // canal_de_salida(numero + 1);
+    // return: void
+
+    // Example: 13, console.log(typeof canal_de_salida);
+    
+    canal_de_salida(suma(numero,1)); // alert(numero + 1);
+}
+
 function suma(a, b) {
     /* Docstring
     a: int
@@ -40,19 +51,15 @@ function suma(a, b) {
     return: int
     */
 
-     return a + b;
- }
+    function suma_interna() {
+        return a + b;
+    }
+
+    return suma_interna(a + b);
+}
+
 
 let resultado = suma;
-
-function imprimir_un_numero_mas_uno(numero, canal_de_salida) {
-    // numero: int
-    // canal_de_salida: function
-    // canal_de_salida(numero + 1);
-
-    // console.log(typeof canal_de_salida);
-    canal_de_salida(numero + 1); // alert(numero + 1);
-}
 
 // let resultado = console.log("Hola como va");
 
@@ -61,8 +68,15 @@ function imprimir_un_numero_mas_uno(numero, canal_de_salida) {
 
 // console.log(typeof resultado);
 
+function show_number_on_html(number) {
+    document.getElementById("title").innerHTML = number;
+}
+
+imprimir_un_numero_mas_uno(13, console.log);
+imprimir_un_numero_mas_uno(13, show_number_on_html);
 let valor_de_devuelto = imprimir_un_numero_mas_uno(13, console.log);
-// let valor_de_devuelto = imprimir_un_numero_mas_uno(13, console.log);
+console.log("valor devuelto: ", valor_de_devuelto); // undefined
+
 // let resultado = 1 + 2;
 
 // Control de flujo
