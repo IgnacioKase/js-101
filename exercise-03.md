@@ -31,7 +31,7 @@ Create tests for all exercises
 3. Create a function that given an Array of strings and a string, it returns if true if the string is present in the Array. Signature:
 
     ```ts
-    function find(numbers: Array[string]): boolean
+    function find(strings: Array[string], search_term: string): boolean
     ```
 
     Example
