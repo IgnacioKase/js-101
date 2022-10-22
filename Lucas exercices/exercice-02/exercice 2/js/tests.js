@@ -1,7 +1,3 @@
-
-
-
-
 function assert_equal(actual, expected) {
     if (actual !== expected) {
         throw (actual + " is not " + expected + ".");
