@@ -7,7 +7,7 @@ Create tests for all exercises
 1. Create a function that takes an array of numbers and sums all the elements. Signature:
 
     ```ts
-    function sum(numbers: Array[number]): number
+    function sum(numbers: Array<number>]): number
     ```
 
     Example:
