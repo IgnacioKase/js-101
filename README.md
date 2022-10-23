@@ -27,10 +27,6 @@ First, move to the corresponding directory:
 ```bash
 
 cd kase
-```
-
-```bash
-
 npm run build:watcher
 ```
 
@@ -45,10 +41,6 @@ First, move to the corresponding directory:
 ```bash
 
 cd kase
-```
-
-```bash
-
 npm run build
 ```
 
