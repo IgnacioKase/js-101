@@ -35,11 +35,11 @@ let doubledNumbers = filter(numbers, multipleByTwo); // doubledNumbers = [2, 4, 
 ## Filter, map, and reduce exercises
 
 1.Implement a function that takes a string and:
-  a. Removes all the whitespaces at the beginning and at the end of the string.
-  b. Removes all the strings that doesn't start with '--'.
-  c. Removes the '--' from the filtered strings.
-  e. Join all the strings together, separating the strings with a ','.
-  f. Returns the result
+  1. Removes all the whitespaces at the beginning and at the end of the string.
+  2. Removes all the strings that doesn't start with '--'.
+  3. Removes the '--' from the filtered strings.
+  4. Join all the strings together, separating the strings with a ','.
+  5. Returns the result
   
 Signature of the function:
 
