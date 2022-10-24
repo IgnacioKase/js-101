@@ -21,7 +21,7 @@ let evens = filter(numbers, isEven); // evens = [2, 4, 6, 8]
 2. Implement the `map` function yourself that imitates what the `Array.map` method does. Signature:
 
 ```ts
-function map<Type>(elements: Array<Type>, filter_function: (element: Type) => any): Array<any>
+function map<Type>(elements: Array<Type>, func: (element: Type) => any): Array<any>
 ```
 
 Example of usage:
