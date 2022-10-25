@@ -5,7 +5,7 @@ var __webpack_exports__ = {};
   !*** ./src/index.ts ***!
   \**********************/
 
-console.log('Hello world');
+console.log("0keso");
 
 /******/ })()
 ;
