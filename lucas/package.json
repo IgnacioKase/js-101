@@ -4,7 +4,7 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "build:watcher": "webpack --mode development --watch"
   },
   "keywords": [],
