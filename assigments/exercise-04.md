@@ -44,5 +44,18 @@ let doubledNumbers = filter(numbers, multipleByTwo); // doubledNumbers = [2, 4, 
 Signature of the function:
 
 ```ts
-function normalize_and_join_arguments(arguments: string[]): string
+function normalize_and_join_arguments(arguments: Array<string>): string
 ```
+
+
+Example of usage:
+
+```ts
+let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
+let normalizedArguments = normalize_and_join_arguments(arguments);
+
+// 1. Eliminate whitespaces: ['arg1', '--arg2', '--arg3']
+// 2. Removes arguments not starting with '--': ['--arg2', '--arg3']
+// 3. Removes the '--': ['arg2', 'arg3']
+// 4. Join all the strings together: "arg2,arg3"
+// 5. "arg2,arg3"
