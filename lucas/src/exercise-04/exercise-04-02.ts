@@ -20,3 +20,5 @@ function testMap(): void{
   
     console.log("===All test passed===");
   }
+
+  export {testMap};
