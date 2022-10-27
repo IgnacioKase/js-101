@@ -9,29 +9,31 @@
 
 */
 
-function removeWhitespaces(partOnetoremove: string): string{
-    return partOnetoremove.replace(/\s+/g, '');
+function removeWhitespaces(arg: string): string{
+    return arg.replace(/\s+/g, '');
 }
 
-function filterRemoveGuion(partTwotoremove: string): string{
-    return partTwotoremove.filter(/\s+/g, '');
+function removeDashes(arg: string): string{
+    // TODO implement
+    return arg;
+}
+
+function doesStartWithDashes(arg: string): boolean {
+    // TODO implement
+    return true;
 }
 
 let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
 let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
 
 
-function normalize_and_join_arguments(nombres: Array<string>): any{ // aca igual que abajo arguments me lo tira invalido nombres no.
+function normalize_and_join_arguments(args: Array<string>): string {
     
-    let output = [];
+    let output = args.map(removeWhitespaces);
+    output = output.filter(doesStartWithDashes);
+    output = output.map(removeDashes);
 
-    output.map(removeWhitespaces(nombres));   // aca varias veces me pasa que cuando le pongo un nombre tipo noSpace me tira Variable 'notSpace' is used before being assigned,
-   
-    
-    for (const index of output) {
-        output.push(filterRemoveGuion(index));
-    }
+    return ""
 }
 
 export {normalize_and_join_arguments, normalizedArguments};
-
