@@ -48,6 +48,79 @@ function testFilter() {
 
 /***/ }),
 
+/***/ "./src/exercise-04/exercise-04-02.ts":
+/*!*******************************************!*\
+  !*** ./src/exercise-04/exercise-04-02.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "testMap": () => (/* binding */ testMap)
+/* harmony export */ });
+/* harmony import */ var _utils_for_tests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils_for_tests */ "./src/utils_for_tests.ts");
+
+function multipleByTwo(num) {
+    return num * 2;
+}
+function map(elements, _function_multiplication) {
+    let output = [];
+    for (const numero of elements) {
+        output.push(multipleByTwo(numero));
+    }
+    return output;
+}
+function testMap() {
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([10, 500, 2], multipleByTwo), [20, 1000, 4]);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([-100, -1, 0], multipleByTwo), [-200, -2, 0]);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([0.4, 0.5], multipleByTwo), [0.8, 1]);
+    //assertEqualArrays(map(["keso", "1", "ana", "jamon"], multipleByTwo), ["keso", "jamon"]); que pasaria ?
+    console.log("===All test passed===");
+}
+
+
+
+/***/ }),
+
+/***/ "./src/exercise-04/exercise-04-03.ts":
+/*!*******************************************!*\
+  !*** ./src/exercise-04/exercise-04-03.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "normalize_and_join_arguments": () => (/* binding */ normalize_and_join_arguments),
+/* harmony export */   "normalizedArguments": () => (/* binding */ normalizedArguments)
+/* harmony export */ });
+/*1.Implement a function that takes a string and:
+  1. Removes all the whitespaces at the beginning and at the end of the string.
+  2. Removes all the strings that doesn't start with '--'.
+  3. Removes the '--' from the filtered strings.
+  4. Join all the strings together, separating the strings with a ','.
+  5. Returns the result
+
+    map -> filter -> map -> reduce
+
+*/
+function removeWhitespaces(partOnetoremove) {
+    return partOnetoremove.replace(/\s+/g, '');
+}
+let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
+let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
+function normalize_and_join_arguments(nombres) {
+    let output = [];
+    for (const nombre of nombres) {
+        output.push(removeWhitespaces(nombre)); // aca varias veces me pasa que cuando le pongo un nombre tipo noSpace me tira Variable 'notSpace' is used before being assigned,
+        // asi que copio y pego el nombre de una que funciono en el pasado nose porque 
+    }
+    return output;
+}
+
+
+
+/***/ }),
+
 /***/ "./src/utils_for_tests.ts":
 /*!********************************!*\
   !*** ./src/utils_for_tests.ts ***!
@@ -155,8 +228,15 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exercise-04/exercise-04-01 */ "./src/exercise-04/exercise-04-01.ts");
+/* harmony import */ var _exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exercise-04/exercise-04-02 */ "./src/exercise-04/exercise-04-02.ts");
+/* harmony import */ var _exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercise-04/exercise-04-03 */ "./src/exercise-04/exercise-04-03.ts");
+
+
 
 (0,_exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__.testFilter)();
+(0,_exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__.testMap)();
+//normalize_and_join_arguments();
+console.log(_exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__.normalizedArguments);
 
 })();
 
