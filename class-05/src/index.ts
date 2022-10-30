@@ -85,7 +85,6 @@ function multiple_by_two(x: number): number {
 let base_numbers = [1, 2, 3, 4, 5];
 
 // Using map
-let doubled_numbers = base_numbers.map(multiple_by_two);
 console.log(doubled_numbers);
 
 // Manual equivalent way

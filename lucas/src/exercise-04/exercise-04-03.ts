@@ -23,7 +23,7 @@ let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
 
 function normalize_and_join_arguments(nombres: Array<string>): any{ // aca igual que abajo arguments me lo tira invalido nombres no.
     
-    let output = [];
+    let output = any[];
 
     output.map(removeWhitespaces(nombres));   // aca varias veces me pasa que cuando le pongo un nombre tipo noSpace me tira Variable 'notSpace' is used before being assigned,
    
