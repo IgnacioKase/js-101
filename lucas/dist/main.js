@@ -106,15 +106,17 @@ __webpack_require__.r(__webpack_exports__);
 function removeWhitespaces(partOnetoremove) {
     return partOnetoremove.replace(/\s+/g, '');
 }
+function filterRemoveGuion(partTwotoremove) {
+    return partTwotoremove.filter(/\s+/g, '');
+}
 let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
 let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
 function normalize_and_join_arguments(nombres) {
     let output = [];
-    for (const nombre of nombres) {
-        output.push(removeWhitespaces(nombre)); // aca varias veces me pasa que cuando le pongo un nombre tipo noSpace me tira Variable 'notSpace' is used before being assigned,
-        // asi que copio y pego el nombre de una que funciono en el pasado nose porque 
+    output.map(removeWhitespaces(nombres)); // aca varias veces me pasa que cuando le pongo un nombre tipo noSpace me tira Variable 'notSpace' is used before being assigned,
+    for (const index of output) {
+        output.push(filterRemoveGuion(index));
     }
-    return output;
 }
 
 
