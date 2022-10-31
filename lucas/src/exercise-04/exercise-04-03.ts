@@ -1,3 +1,5 @@
+import { assertEqual } from "../utils_for_tests";
+
 /*1.Implement a function that takes a string and:
   1. Removes all the whitespaces at the beginning and at the end of the string.
   2. Removes all the strings that doesn't start with '--'.
@@ -8,32 +10,36 @@
     map -> filter -> map -> reduce
 
 */
+function normalizeAndJoinArguments(args: Array<string>): string{
+    let output = args.map(removeWhitespaces);
+    output = output.filter(doesStartWithDashes);
+    output = output.map(removeDashes);
+    return output.reduce(joinWithComma);
+}
 
 function removeWhitespaces(arg: string): string{
     return arg.replace(/\s+/g, '');
 }
 
+function doesStartWithDashes(arg: string): boolean{
+    if(arg.length < 2){
+        return false;
+    }
+    return arg[0] === "-" && arg[1] === "-";
+}
+
 function removeDashes(arg: string): string{
-    // TODO implement
-    return arg;
+    return arg.replace("--", '');
 }
 
-function doesStartWithDashes(arg: string): boolean {
-    // TODO implement
-    return true;
+function joinWithComma(arg1: string, arg2: string): string{
+    return arg1 + "," + arg2;
 }
 
-let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
-let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
-
-
-function normalize_and_join_arguments(args: Array<string>): string {
-    
-    let output = args.map(removeWhitespaces);
-    output = output.filter(doesStartWithDashes);
-    output = output.map(removeDashes);
-
-    return ""
+function testNormalize(): void{
+    assertEqual(normalizeAndJoinArguments(['   arg1 ', '--arg2     ', '--arg3']), "arg2,arg3");
+    assertEqual(normalizeAndJoinArguments(['queso', '', '-',"--","-- ","--a","-a-","- -"]), ",,a,");
+    console.log("===All test passed (Normalize)===");
 }
 
-export {normalize_and_join_arguments, normalizedArguments};
+export {testNormalize};

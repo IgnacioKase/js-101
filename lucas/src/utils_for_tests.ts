@@ -1,11 +1,11 @@
-function assert_equal(actual: any, expected: any) {
+function assertEqual(actual: any, expected: any) {
   if (actual !== expected) {
     throw actual + " is not " + expected + ".";
   } else {
   }
 }
 
-function assert_throw(method: any, ...params: any) {
+function assertThrow(method: any, ...params: any) {
   try {
     method(...params);
   } catch (error) {
@@ -26,4 +26,4 @@ function assertEqualArrays(a: any[], b: any[]) {
   }
 }
 
-export { assert_equal, assert_throw, assertEqualArrays};
+export { assertEqual , assertThrow , assertEqualArrays};

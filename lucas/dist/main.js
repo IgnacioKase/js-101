@@ -66,7 +66,7 @@ function multipleByTwo(num) {
 function map(elements, func) {
     let output = [];
     for (const element of elements) {
-        output.push(multipleByTwo(element));
+        output.push(func(element));
     }
     return output;
 }
@@ -83,17 +83,18 @@ function testMap() {
 
 /***/ }),
 
-/***/ "./src/exercise-04/exercise-04-03.ts":
-/*!*******************************************!*\
-  !*** ./src/exercise-04/exercise-04-03.ts ***!
-  \*******************************************/
+/***/ "./src/exercise-04/exercise-04-03 copy.ts":
+/*!************************************************!*\
+  !*** ./src/exercise-04/exercise-04-03 copy.ts ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "normalize_and_join_arguments": () => (/* binding */ normalize_and_join_arguments),
-/* harmony export */   "normalizedArguments": () => (/* binding */ normalizedArguments)
+/* harmony export */   "testNormalize": () => (/* binding */ testNormalize)
 /* harmony export */ });
+/* harmony import */ var _utils_for_tests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils_for_tests */ "./src/utils_for_tests.ts");
+
 /*1.Implement a function that takes a string and:
   1. Removes all the whitespaces at the beginning and at the end of the string.
   2. Removes all the strings that doesn't start with '--'.
@@ -104,27 +105,31 @@ __webpack_require__.r(__webpack_exports__);
     map -> filter -> map -> reduce
 
 */
-function removeWhitespaces(arg) {
-    return arg.replace(/\s+/g, '');
-}
-function removeDashes(arg) {
-    // TODO implement
-    return arg;
-}
-function doesStartWithDashes(arg) {
-    // TODO implement
-    return true;
-}
-function filterRemoveGuion(partTwotoremove) {
-    return partTwotoremove.filter(/\s+/g, '');
-}
-let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
-let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
-function normalize_and_join_arguments(args) {
+function normalizeAndJoinArguments(args) {
     let output = args.map(removeWhitespaces);
     output = output.filter(doesStartWithDashes);
     output = output.map(removeDashes);
-    return "";
+    return output.reduce(joinWithComma);
+}
+function removeWhitespaces(arg) {
+    return arg.replace(/\s+/g, '');
+}
+function doesStartWithDashes(arg) {
+    if (arg.length < 2) {
+        return false;
+    }
+    return arg[0] === "-" && arg[1] === "-";
+}
+function removeDashes(arg) {
+    return arg.replace("--", '');
+}
+function joinWithComma(arg1, arg2) {
+    return arg1 + "," + arg2;
+}
+function testNormalize() {
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(normalizeAndJoinArguments(['   arg1 ', '--arg2     ', '--arg3']), "arg2,arg3");
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(normalizeAndJoinArguments(['queso', '', '-', "--", "-- ", "--a", "-a-", "- -"]), ",,a,");
+    console.log("===All test passed===");
 }
 
 
@@ -139,18 +144,18 @@ function normalize_and_join_arguments(args) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "assertEqual": () => (/* binding */ assertEqual),
 /* harmony export */   "assertEqualArrays": () => (/* binding */ assertEqualArrays),
-/* harmony export */   "assert_equal": () => (/* binding */ assert_equal),
-/* harmony export */   "assert_throw": () => (/* binding */ assert_throw)
+/* harmony export */   "assertThrow": () => (/* binding */ assertThrow)
 /* harmony export */ });
-function assert_equal(actual, expected) {
+function assertEqual(actual, expected) {
     if (actual !== expected) {
         throw actual + " is not " + expected + ".";
     }
     else {
     }
 }
-function assert_throw(method, ...params) {
+function assertThrow(method, ...params) {
     try {
         method(...params);
     }
@@ -239,14 +244,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exercise-04/exercise-04-01 */ "./src/exercise-04/exercise-04-01.ts");
 /* harmony import */ var _exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exercise-04/exercise-04-02 */ "./src/exercise-04/exercise-04-02.ts");
-/* harmony import */ var _exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercise-04/exercise-04-03 */ "./src/exercise-04/exercise-04-03.ts");
+/* harmony import */ var _exercise_04_exercise_04_03_copy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercise-04/exercise-04-03 copy */ "./src/exercise-04/exercise-04-03 copy.ts");
 
 
 
 (0,_exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__.testFilter)();
 (0,_exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__.testMap)();
-//normalize_and_join_arguments();
-console.log(_exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__.normalizedArguments);
+(0,_exercise_04_exercise_04_03_copy__WEBPACK_IMPORTED_MODULE_2__.testNormalize)();
 
 })();
 

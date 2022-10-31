@@ -7,7 +7,7 @@ Write tests for all the functions.
 1. Implement the `filter` function yourself that imitates what the `Array.filter` method does. Signature:
 
   ```ts
-  function filter<Type>(elements: Array<Type>, filter_function: (element: Type) => boolean): Array<Type>
+  function filter<Type>(elements: Array<Type>, func: (element: Type) => boolean): Array<Type>
   ```
 
   Example of usage:
@@ -45,14 +45,14 @@ Write tests for all the functions.
 Signature of the function:
 
 ```ts
-function normalize_and_join_arguments(args: Array<string>): string
+function normalizeAndJoinArguments(args: Array<string>): string
 ```
 
 Example of usage:
 
 ```ts
 let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
-let normalizedArguments = normalize_and_join_arguments(arguments);
+let normalizedArguments = normalizeAndJoinArguments(arguments);
 
 // 1. Eliminate whitespaces: ['arg1', '--arg2', '--arg3']
 // 2. Removes arguments not starting with '--': ['--arg2', '--arg3']

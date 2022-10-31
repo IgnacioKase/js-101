@@ -32,7 +32,7 @@ function testFilter(): void{
   assertEqualArrays(filter(["alarge", "a", "4444", "    "], longEnough), ["alarge", "4444", "    "]);
   assertEqualArrays(filter(["ala", "1c", "7-1"], longEnough), []);
 
-  console.log("===All test passed===");
+  console.log("===All test passed(Filter)===");
 }
 
 export {testFilter};
