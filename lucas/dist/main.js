@@ -63,10 +63,10 @@ __webpack_require__.r(__webpack_exports__);
 function multipleByTwo(num) {
     return num * 2;
 }
-function map(elements, _function_multiplication) {
+function map(elements, func) {
     let output = [];
-    for (const numero of elements) {
-        output.push(multipleByTwo(numero));
+    for (const element of elements) {
+        output.push(multipleByTwo(element));
     }
     return output;
 }
@@ -74,8 +74,9 @@ function testMap() {
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([10, 500, 2], multipleByTwo), [20, 1000, 4]);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([-100, -1, 0], multipleByTwo), [-200, -2, 0]);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([0.4, 0.5], multipleByTwo), [0.8, 1]);
-    //assertEqualArrays(map(["keso", "1", "ana", "jamon"], multipleByTwo), ["keso", "jamon"]); que pasaria ?
-    console.log("===All test passed===");
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map(["Lucas", "Maxi", "Ignacio"], (name) => "Hello " + name), ["Hello Lucas", "Hello Maxi", "Hello Ignacio"]);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(map([true, false, true, false], (bool) => !bool), [false, true, false, true]);
+    console.log("===All test passed (Map)===");
 }
 
 
@@ -103,20 +104,27 @@ __webpack_require__.r(__webpack_exports__);
     map -> filter -> map -> reduce
 
 */
-function removeWhitespaces(partOnetoremove) {
-    return partOnetoremove.replace(/\s+/g, '');
+function removeWhitespaces(arg) {
+    return arg.replace(/\s+/g, '');
+}
+function removeDashes(arg) {
+    // TODO implement
+    return arg;
+}
+function doesStartWithDashes(arg) {
+    // TODO implement
+    return true;
 }
 function filterRemoveGuion(partTwotoremove) {
     return partTwotoremove.filter(/\s+/g, '');
 }
 let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
 let normalizedArguments = normalize_and_join_arguments(unNormlizedArguments);
-function normalize_and_join_arguments(nombres) {
-    let output = [];
-    output.map(removeWhitespaces(nombres)); // aca varias veces me pasa que cuando le pongo un nombre tipo noSpace me tira Variable 'notSpace' is used before being assigned,
-    for (const index of output) {
-        output.push(filterRemoveGuion(index));
-    }
+function normalize_and_join_arguments(args) {
+    let output = args.map(removeWhitespaces);
+    output = output.filter(doesStartWithDashes);
+    output = output.map(removeDashes);
+    return "";
 }
 
 

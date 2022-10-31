@@ -94,6 +94,9 @@ for (const x of base_numbers) {
 }
 console.log(manual_doubled_numbers);
 
+let greetings = names.map((name) => "Hello " + name);
+console.log(greetings);
+
 // Reduce
 
 console.log("======================== Use of reduce ========================");
