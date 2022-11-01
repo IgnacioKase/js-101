@@ -54,8 +54,10 @@ Example of usage:
 let unNormlizedArguments = ['   arg1 ', '--arg2     ', '--arg3'];
 let normalizedArguments = normalizeAndJoinArguments(arguments);
 
+
 // 1. Eliminate whitespaces: ['arg1', '--arg2', '--arg3']
 // 2. Removes arguments not starting with '--': ['--arg2', '--arg3']
 // 3. Removes the '--': ['arg2', 'arg3']
 // 4. Join all the strings together: "arg2,arg3"
 // 5. "arg2,arg3"
+```
