@@ -41,7 +41,7 @@ function testFilter() {
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(filter(["keso", "1", "ana", "jamon"], longEnough), ["keso", "jamon"]);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(filter(["alarge", "a", "4444", "    "], longEnough), ["alarge", "4444", "    "]);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqualArrays)(filter(["ala", "1c", "7-1"], longEnough), []);
-    console.log("===All test passed===");
+    console.log("===All test passed(Filter)===");
 }
 
 
@@ -83,10 +83,10 @@ function testMap() {
 
 /***/ }),
 
-/***/ "./src/exercise-04/exercise-04-03 copy.ts":
-/*!************************************************!*\
-  !*** ./src/exercise-04/exercise-04-03 copy.ts ***!
-  \************************************************/
+/***/ "./src/exercise-04/exercise-04-03.ts":
+/*!*******************************************!*\
+  !*** ./src/exercise-04/exercise-04-03.ts ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -129,8 +129,55 @@ function joinWithComma(arg1, arg2) {
 function testNormalize() {
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(normalizeAndJoinArguments(['   arg1 ', '--arg2     ', '--arg3']), "arg2,arg3");
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(normalizeAndJoinArguments(['queso', '', '-', "--", "-- ", "--a", "-a-", "- -"]), ",,a,");
-    console.log("===All test passed===");
+    console.log("===All test passed (Normalize)===");
 }
+
+
+
+/***/ }),
+
+/***/ "./src/exercise-05/exercise-05-01.ts":
+/*!*******************************************!*\
+  !*** ./src/exercise-05/exercise-05-01.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isValidSymbolCombination": () => (/* binding */ isValidSymbolCombination)
+/* harmony export */ });
+//let prueba1 = ["{[()]}","()()()[]{}","()()()[]{}","({[]}[]{()})","","()"];
+//let prueba1 = ["{[()]}"];
+function twoOfTheSameType(args) {
+    if (args.includes("()") || args.includes("[]") || args.includes("{}")) {
+        return true;
+    }
+    return false;
+}
+function isValidSymbolCombination(combination) {
+    let lengString = combination.length;
+    for (const combine of combination) {
+        let itsFine = 0;
+        if (twoOfTheSameType(combine)) {
+            itsFine = itsFine + 1;
+        }
+        if (itsFine === (lengString / 2)) {
+            return true;
+        }
+        return false;
+    }
+    return false;
+}
+isValidSymbolCombination("{[()]}");
+console.log(isValidSymbolCombination);
+/*function testExer5(): void{
+    assertEqual(isValidSymbolCombination(["{[()]}"],"()[]{}"), true);
+    assertEqual(isValidSymbolCombination(["{}"]), ",,a,");
+    assertEqual(isValidSymbolCombination(["()"]), "arg2,arg3");
+    assertEqual(isValidSymbolCombination(["[]"]), ",,a,");
+    console.log("===All test passed (Exercise5)===");
+}
+*/
 
 
 
@@ -244,13 +291,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exercise-04/exercise-04-01 */ "./src/exercise-04/exercise-04-01.ts");
 /* harmony import */ var _exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exercise-04/exercise-04-02 */ "./src/exercise-04/exercise-04-02.ts");
-/* harmony import */ var _exercise_04_exercise_04_03_copy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercise-04/exercise-04-03 copy */ "./src/exercise-04/exercise-04-03 copy.ts");
+/* harmony import */ var _exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercise-04/exercise-04-03 */ "./src/exercise-04/exercise-04-03.ts");
+/* harmony import */ var _exercise_05_exercise_05_01__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./exercise-05/exercise-05-01 */ "./src/exercise-05/exercise-05-01.ts");
+
 
 
 
 (0,_exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__.testFilter)();
 (0,_exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__.testMap)();
-(0,_exercise_04_exercise_04_03_copy__WEBPACK_IMPORTED_MODULE_2__.testNormalize)();
+(0,_exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__.testNormalize)();
+(0,_exercise_05_exercise_05_01__WEBPACK_IMPORTED_MODULE_3__.isValidSymbolCombination)("{[()]}");
 
 })();
 
