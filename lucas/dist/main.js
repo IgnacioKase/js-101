@@ -144,41 +144,75 @@ function testNormalize() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "isValidSymbolCombination": () => (/* binding */ isValidSymbolCombination)
+/* harmony export */   "testExer5": () => (/* binding */ testExer5)
 /* harmony export */ });
+/* harmony import */ var _utils_for_tests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils_for_tests */ "./src/utils_for_tests.ts");
+
 //let prueba1 = ["{[()]}","()()()[]{}","()()()[]{}","({[]}[]{()})","","()"];
 //let prueba1 = ["{[()]}"];
-function twoOfTheSameType(args) {
-    if (args.includes("()") || args.includes("[]") || args.includes("{}")) {
-        return true;
+//([]){
+var SymbolType;
+(function (SymbolType) {
+    SymbolType["parenthesis"] = "parenthesis";
+    SymbolType["squareBracket"] = "squareBracket";
+    SymbolType["curlyBracket"] = "curlyBracket";
+})(SymbolType || (SymbolType = {}));
+function getSymbolType(symbol) {
+    switch (symbol) {
+        case "(":
+        case ")":
+            return SymbolType.parenthesis;
+        case "[":
+        case "]":
+            return SymbolType.squareBracket;
+        case "{":
+        case "}":
+            return SymbolType.curlyBracket;
+        default:
+            throw new Error(`Invalid symbol: ${symbol}`);
     }
-    return false;
+}
+function isOpeningSymbol(symbol) {
+    return ["(", "{", "["].includes(symbol);
+}
+function removeLastItem(arr) {
+    arr.splice(arr.length - 1, 1);
+}
+function areSymbolsEqualType(opening, closing) {
+    return getSymbolType(opening) === getSymbolType(closing);
 }
 function isValidSymbolCombination(combination) {
-    let lengString = combination.length;
-    for (const combine of combination) {
-        let itsFine = 0;
-        if (twoOfTheSameType(combine)) {
-            itsFine = itsFine + 1;
+    let openedPairs = [];
+    for (const symbol of combination) {
+        if (isOpeningSymbol(symbol)) {
+            openedPairs.push(symbol);
         }
-        if (itsFine === (lengString / 2)) {
-            return true;
+        else {
+            const lastOpenSymbol = openedPairs.at(-1);
+            if (lastOpenSymbol === undefined) {
+                return false;
+            }
+            if (areSymbolsEqualType(lastOpenSymbol, symbol)) {
+                removeLastItem(openedPairs);
+            }
+            else {
+                return false;
+            }
         }
-        return false;
     }
-    return false;
+    return openedPairs.length === 0;
 }
-isValidSymbolCombination("{[()]}");
-console.log(isValidSymbolCombination);
-/*function testExer5(): void{
-    assertEqual(isValidSymbolCombination(["{[()]}"],"()[]{}"), true);
-    assertEqual(isValidSymbolCombination(["{}"]), ",,a,");
-    assertEqual(isValidSymbolCombination(["()"]), "arg2,arg3");
-    assertEqual(isValidSymbolCombination(["[]"]), ",,a,");
+function testExer5() {
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("([])"), true);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("{}"), true);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("()"), true);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("[]"), true);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("[}"), false);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("{[()]}"), true);
     console.log("===All test passed (Exercise5)===");
 }
-*/
 
+// problema con los test nose si hacer (["{[()]}"],"()[]{}"), true) o (["{[()]}"], true), true)
 
 
 /***/ }),
@@ -300,7 +334,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_exercise_04_exercise_04_01__WEBPACK_IMPORTED_MODULE_0__.testFilter)();
 (0,_exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__.testMap)();
 (0,_exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__.testNormalize)();
-(0,_exercise_05_exercise_05_01__WEBPACK_IMPORTED_MODULE_3__.isValidSymbolCombination)("{[()]}");
+(0,_exercise_05_exercise_05_01__WEBPACK_IMPORTED_MODULE_3__.testExer5)();
 
 })();
 
