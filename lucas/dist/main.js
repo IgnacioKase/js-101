@@ -144,6 +144,9 @@ function testNormalize() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "areSymbolsEqualType": () => (/* binding */ areSymbolsEqualType),
+/* harmony export */   "isOpeningSymbol": () => (/* binding */ isOpeningSymbol),
+/* harmony export */   "removeLastItem": () => (/* binding */ removeLastItem),
 /* harmony export */   "testExer5": () => (/* binding */ testExer5)
 /* harmony export */ });
 /* harmony import */ var _utils_for_tests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils_for_tests */ "./src/utils_for_tests.ts");
@@ -207,12 +210,68 @@ function testExer5() {
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("{}"), true);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("()"), true);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("[]"), true);
-    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("[}"), false);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("([)]"), false);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("{[}"), false);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("())"), false);
     (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(isValidSymbolCombination("{[()]}"), true);
     console.log("===All test passed (Exercise5)===");
 }
 
 // problema con los test nose si hacer (["{[()]}"],"()[]{}"), true) o (["{[()]}"], true), true)
+
+
+/***/ }),
+
+/***/ "./src/exercise-05/exercise-05-02.ts":
+/*!*******************************************!*\
+  !*** ./src/exercise-05/exercise-05-02.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "areSymbolsEqualType": () => (/* reexport safe */ _exercise_05_01__WEBPACK_IMPORTED_MODULE_1__.areSymbolsEqualType),
+/* harmony export */   "testExer52": () => (/* binding */ testExer52)
+/* harmony export */ });
+/* harmony import */ var _utils_for_tests__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils_for_tests */ "./src/utils_for_tests.ts");
+/* harmony import */ var _exercise_05_01__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exercise-05-01 */ "./src/exercise-05/exercise-05-01.ts");
+
+
+function numberOfCombinationSymbol(combination) {
+    let openedPairs = [];
+    let contador = 0;
+    for (const symbol of combination) {
+        if ((0,_exercise_05_01__WEBPACK_IMPORTED_MODULE_1__.isOpeningSymbol)(symbol)) {
+            openedPairs.push(symbol);
+        }
+        else {
+            const lastOpenSymbol = openedPairs.at(-1);
+            if (lastOpenSymbol === undefined) {
+                return contador;
+            }
+            if ((0,_exercise_05_01__WEBPACK_IMPORTED_MODULE_1__.areSymbolsEqualType)(lastOpenSymbol, symbol)) {
+                (0,_exercise_05_01__WEBPACK_IMPORTED_MODULE_1__.removeLastItem)(openedPairs);
+                contador = contador + 1;
+            }
+            else {
+                return contador;
+            }
+        }
+    }
+    return contador;
+}
+function testExer52() {
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("([])"), 2);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("{}"), 1);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("()"), 1);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("[]"), 1);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("([)]"), 0);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("{[}"), 0);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("())"), 1);
+    (0,_utils_for_tests__WEBPACK_IMPORTED_MODULE_0__.assertEqual)(numberOfCombinationSymbol("{[()]}"), 3);
+    console.log("===All test passed (Exercise52)===");
+}
+
 
 
 /***/ }),
@@ -327,6 +386,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exercise-04/exercise-04-02 */ "./src/exercise-04/exercise-04-02.ts");
 /* harmony import */ var _exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercise-04/exercise-04-03 */ "./src/exercise-04/exercise-04-03.ts");
 /* harmony import */ var _exercise_05_exercise_05_01__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./exercise-05/exercise-05-01 */ "./src/exercise-05/exercise-05-01.ts");
+/* harmony import */ var _exercise_05_exercise_05_02__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./exercise-05/exercise-05-02 */ "./src/exercise-05/exercise-05-02.ts");
+
 
 
 
@@ -335,6 +396,7 @@ __webpack_require__.r(__webpack_exports__);
 (0,_exercise_04_exercise_04_02__WEBPACK_IMPORTED_MODULE_1__.testMap)();
 (0,_exercise_04_exercise_04_03__WEBPACK_IMPORTED_MODULE_2__.testNormalize)();
 (0,_exercise_05_exercise_05_01__WEBPACK_IMPORTED_MODULE_3__.testExer5)();
+(0,_exercise_05_exercise_05_02__WEBPACK_IMPORTED_MODULE_4__.testExer52)();
 
 })();
 

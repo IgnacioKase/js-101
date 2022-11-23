@@ -70,5 +70,5 @@ function testExer5(): void {
   console.log("===All test passed (Exercise5)===");
 }
 
-export { testExer5 };
+export { testExer5, areSymbolsEqualType, isOpeningSymbol, removeLastItem };
 // problema con los test nose si hacer (["{[()]}"],"()[]{}"), true) o (["{[()]}"], true), true)
